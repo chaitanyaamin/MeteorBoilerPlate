@@ -1,16 +1,14 @@
-HomeController = RouteController.extend({
-  layoutTemplate: 'MasterLayout',
+IssuesController = RouteController.extend({
+  
   // A place to put your subscriptions
   // this.subscribe('items');
   // // add the subscription to the waitlist
   // this.subscribe('item', this.params._id).wait();
   
   subscriptions: function() {
+    this.subscribe('issues', Meteor.userId());
   },
   
-  action: function() {
-    this.render('Home');
-  },
   // Subscriptions or other things we want to "wait" on. This also
   // automatically uses the loading hook. That's the only difference between
   // this option and the subscriptions option above.
@@ -26,6 +24,19 @@ HomeController = RouteController.extend({
   // return Posts.findOne({_id: this.params._id});
   
   data: function () {
+    return Issues.findOne({_id: this.params._id});
+  },
+
+  insert: function () {
+    this.render('InsertIssue', {});
+  },
+
+  list: function() {
+    this.render('IssuesList', {});
+  },
+
+  edit: function() {
+    this.render('EditIssue', {});
   },
   
   // You can provide any of the hook options
@@ -48,6 +59,9 @@ HomeController = RouteController.extend({
   // Example:
   //  action: 'myActionFunction'
   
+  action: function () {
+    this.render();
+  },
   onAfterAction: function () {
   },
   onStop: function () {

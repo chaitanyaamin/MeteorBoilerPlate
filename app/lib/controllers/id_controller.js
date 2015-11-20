@@ -1,5 +1,5 @@
-HomeController = RouteController.extend({
-  layoutTemplate: 'MasterLayout',
+IdController = RouteController.extend({
+  
   // A place to put your subscriptions
   // this.subscribe('items');
   // // add the subscription to the waitlist
@@ -8,9 +8,6 @@ HomeController = RouteController.extend({
   subscriptions: function() {
   },
   
-  action: function() {
-    this.render('Home');
-  },
   // Subscriptions or other things we want to "wait" on. This also
   // automatically uses the loading hook. That's the only difference between
   // this option and the subscriptions option above.
@@ -48,6 +45,9 @@ HomeController = RouteController.extend({
   // Example:
   //  action: 'myActionFunction'
   
+  action: function () {
+    this.render();
+  },
   onAfterAction: function () {
   },
   onStop: function () {
