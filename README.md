@@ -1,1 +1,4 @@
 # MeteorBoilerPlate
+#
+#
+# Template for MeteorBoilerPlate
